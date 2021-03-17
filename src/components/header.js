@@ -9,10 +9,10 @@ export default function Header() {
             <a href="#">
               <span class="sr-only">Workflow</span>
               <svg
-                class="h-8 w-auto sm:h-10"
+                class="h-8 w-auto sm:h-10 text-xl font-semibold"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 35 32"
+                viewBox="0 0 200 32"
               >
                 <script xmlns="" />
                 <path
@@ -23,6 +23,9 @@ export default function Header() {
                   fill="#059669"
                   d="M5.007 11.969c-.793 0-1.567.236-2.226.678a4.021 4.021 0 00-1.476 1.807 4.042 4.042 0 00.869 4.386 4.001 4.001 0 004.366.873 4.011 4.011 0 001.798-1.483 4.038 4.038 0 00-.5-5.08 4.004 4.004 0 00-2.831-1.181z"
                 />
+                <text x="40" y="22" fill="#059669">
+                  Intelligent.Capital
+                </text>
               </svg>
             </a>
           </div>
