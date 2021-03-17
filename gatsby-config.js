@@ -6,5 +6,10 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: ['gatsby-plugin-postcss'],
+  siteMetadata: {
+    title: `Intelligent Capital`,
+    description: `Verwalten Sie Ihr Vermögen mit Hilfe Künstlicher Intelligenz`,
+    author: `@_fpeters`,
+  },
+  plugins: ["gatsby-plugin-react-helmet", "gatsby-plugin-postcss"],
 }
