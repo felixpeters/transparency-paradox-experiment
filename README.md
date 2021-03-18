@@ -7,7 +7,14 @@ We use this Gatsby app for conducting an experiment related to Explainable AI fe
 
 ## Resources
 
+Libraries:
+
 - [Headless UI components for React, designed to integrate with Tailwind CSS](https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-react)
+- [gatsby-mixpanel-plugin](https://github.com/thomascarvalho/gatsby-plugin-mixpanel)
+
+Books:
+
+- [Modern Web Development on the Jamstack](https://www.netlify.com/oreilly-jamstack/)
 
 ## Contact
 
