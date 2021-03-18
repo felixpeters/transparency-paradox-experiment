@@ -29,7 +29,7 @@ export default function Stats() {
           </div>
           <div class="flex flex-col mt-10 sm:mt-0">
             <dt class="order-2 mt-2 text-lg leading-6 font-medium text-emerald-200">
-              Parallel laufende KI-Modelle
+              Überwachende KI-Modelle
             </dt>
             <dd class="order-1 text-5xl font-extrabold text-white">1.000+</dd>
           </div>
