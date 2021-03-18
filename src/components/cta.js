@@ -1,6 +1,8 @@
 import React from "react"
+import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function CTA() {
+  const mixpanel = useMixpanel()
   return (
     <div class="bg-gray-50">
       <div class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
@@ -12,6 +14,9 @@ export default function CTA() {
           <div class="inline-flex rounded-md shadow">
             <a
               href="#"
+              onClick={() =>
+                mixpanel.track("Open depot", { env: process.env.NODE_ENV })
+              }
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Depot eröffnen
@@ -20,6 +25,11 @@ export default function CTA() {
           <div class="ml-3 inline-flex rounded-md shadow">
             <a
               href="#"
+              onClick={() =>
+                mixpanel.track("Create sample portfolio", {
+                  env: process.env.NODE_ENV,
+                })
+              }
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50"
             >
               Musterportfolio erstellen

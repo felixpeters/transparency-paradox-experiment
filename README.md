@@ -5,6 +5,10 @@
 
 We use this Gatsby app for conducting an experiment related to Explainable AI features in consumer applications.
 
+## Resources
+
+- [Headless UI components for React, designed to integrate with Tailwind CSS](https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-react)
+
 ## Contact
 
 [Felix Peters](mailto:peters@is.tu-darmstadt.de)

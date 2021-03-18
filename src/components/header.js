@@ -1,12 +1,14 @@
 import React from "react"
+import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function Header() {
+  const mixpanel = useMixpanel()
   return (
     <div class="relative bg-white shadow">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
           <div class="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <a href="#" onClick={() => mixpanel.track("Click logo")}>
               <span class="sr-only">Workflow</span>
               <svg
                 class="h-8 w-auto sm:h-10 text-xl font-semibold"
@@ -56,12 +58,18 @@ export default function Header() {
           <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
               href="#"
+              onClick={() =>
+                mixpanel.track("Log in", { env: process.env.NODE_ENV })
+              }
               class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Login
             </a>
             <a
               href="#"
+              onClick={() =>
+                mixpanel.track("Sign up", { env: process.env.NODE_ENV })
+              }
               class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Kunde werden
@@ -119,13 +127,22 @@ export default function Header() {
           <div>
             <a
               href="#"
+              onClick={() =>
+                mixpanel.track("Sign up", { env: process.env.NODE_ENV })
+              }
               class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Kunde werden
             </a>
             <p class="mt-6 text-center text-base font-medium text-gray-500">
               Existing customer?
-              <a href="#" class="text-emerald-600 hover:text-emerald-500">
+              <a
+                href="#"
+                onClick={() =>
+                  mixpanel.track("Log in", { env: process.env.NODE_ENV })
+                }
+                class="text-emerald-600 hover:text-emerald-500"
+              >
                 Login
               </a>
             </p>
