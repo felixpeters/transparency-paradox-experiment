@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function Header() {
@@ -8,7 +9,7 @@ export default function Header() {
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
           <div class="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#" onClick={() => mixpanel.track("Click logo")}>
+            <Link to="/" onClick={() => mixpanel.track("Click logo")}>
               <span class="sr-only">Workflow</span>
               <svg
                 class="h-8 w-auto sm:h-10 text-xl font-semibold"
@@ -29,7 +30,7 @@ export default function Header() {
                   Intelligent.Capital
                 </text>
               </svg>
-            </a>
+            </Link>
           </div>
           <div class="-mr-2 -my-2 md:hidden">
             <button

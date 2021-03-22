@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function CTA() {
@@ -12,28 +13,22 @@ export default function CTA() {
         </h2>
         <div class="mt-8 flex justify-center">
           <div class="inline-flex rounded-md shadow">
-            <a
-              href="#"
-              onClick={() =>
-                mixpanel.track("Open depot", { env: process.env.NODE_ENV })
-              }
+            <Link
+              to="/survey"
+              onClick={() => mixpanel.track("Open depot")}
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Depot eröffnen
-            </a>
+            </Link>
           </div>
           <div class="ml-3 inline-flex rounded-md shadow">
-            <a
-              href="#"
-              onClick={() =>
-                mixpanel.track("Create sample portfolio", {
-                  env: process.env.NODE_ENV,
-                })
-              }
+            <Link
+              to="/survey"
+              onClick={() => mixpanel.track("Create sample portfolio")}
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50"
             >
               Musterportfolio erstellen
-            </a>
+            </Link>
           </div>
         </div>
       </div>

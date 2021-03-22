@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function Hero() {
@@ -21,28 +22,22 @@ export default function Hero() {
           </p>
           <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
-              <a
-                href="#"
-                onClick={() =>
-                  mixpanel.track("Open depot", { env: process.env.NODE_ENV })
-                }
+              <Link
+                to="/survey"
+                onClick={() => mixpanel.track("Open depot")}
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-10"
               >
                 Depot eröffnen
-              </a>
+              </Link>
             </div>
             <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <a
-                href="#"
-                onClick={() =>
-                  mixpanel.track("Create sample portfolio", {
-                    env: process.env.NODE_ENV,
-                  })
-                }
+              <Link
+                to="/survey"
+                onClick={() => mixpanel.track("Create sample portfolio")}
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
               >
                 Musterportfolio erstellen
-              </a>
+              </Link>
             </div>
           </div>
         </div>
