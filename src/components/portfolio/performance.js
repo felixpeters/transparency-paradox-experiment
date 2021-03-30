@@ -2,7 +2,7 @@ import React from "react"
 
 export default function PortfolioPerformance() {
   return (
-    <div class="max-w-7xl mx-auto my-4 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
       <h3 class="text-xl leading-6 font-medium text-gray-900">
         Prognose Ihrer Wertanlage
       </h3>
@@ -17,7 +17,7 @@ export default function PortfolioPerformance() {
           Wie wurden die Prognosen erstellt?
         </a>
       </div>
-      <dl class="mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
+      <dl class="mt-4 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
         <div class="px-4 py-5 sm:p-6">
           <dt class="text-base font-normal text-gray-900">Bester Fall</dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
