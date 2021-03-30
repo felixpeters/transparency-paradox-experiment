@@ -6,9 +6,17 @@ export default function PortfolioPerformance() {
       <h3 class="text-xl leading-6 font-medium text-gray-900">
         Prognose Ihrer Wertanlage
       </h3>
-      <span class="text-sm font-medium text-gray-500">
-        Einmalige Einzahlung: 10.000€, Summe monatliche Einzahlungen: 30.000€
-      </span>
+      <div class="flex flex-row">
+        <span class="flex-1 text-sm font-medium text-gray-500">
+          Einmalige Einzahlung: 10.000€, Summe monatliche Einzahlungen: 30.000€
+        </span>
+        <a
+          href="#"
+          class="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+        >
+          Wie wurden die Prognosen erstellt?
+        </a>
+      </div>
       <dl class="mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
         <div class="px-4 py-5 sm:p-6">
           <dt class="text-base font-normal text-gray-900">Bester Fall</dt>

@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PortfolioHeader from "../components/portfolio/header"
 import PortfolioPerformance from "../components/portfolio/performance"
+import InvestmentList from "../components/portfolio/investments"
 
 export default function Survey() {
   return (
@@ -10,6 +11,7 @@ export default function Survey() {
       <SEO title="Musterportfolio" />
       <PortfolioHeader />
       <PortfolioPerformance />
+      <InvestmentList />
     </Layout>
   )
 }
