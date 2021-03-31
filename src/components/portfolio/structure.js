@@ -24,10 +24,10 @@ export default function PortfolioStructure() {
       <div class="mt-4 rounded-lg bg-white overflow-hidden shadow">
         <div class="lg:grid lg:grid-cols-2 lg:gap-2">
           <div class="p-4">
-            <img src={"/structure_1.png"} />
+            <img src={"/structure_1.svg"} />
           </div>
           <div class="p-4">
-            <img src={"/structure_2.png"} />
+            <img src={"/structure_2.svg"} />
           </div>
         </div>
       </div>
