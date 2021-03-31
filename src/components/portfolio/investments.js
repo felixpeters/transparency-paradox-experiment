@@ -3,7 +3,7 @@ import React from "react"
 export default function InvestmentList() {
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
-      <h3 class="text-xl leading-6 font-medium text-gray-900">
+      <h3 class="text-2xl leading-6 font-medium text-gray-900">
         Ihr Portfolio im Detail
       </h3>
       <div class="flex flex-col mt-4">
@@ -96,7 +96,7 @@ export default function InvestmentList() {
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="text-sm text-gray-900">
-                        Global Aggregate Float Adjusted Composite Index
+                        Global Aggregate Composite Index
                       </div>
                       <div class="text-sm text-gray-500">Anleihenindex</div>
                     </td>

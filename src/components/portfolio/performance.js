@@ -3,10 +3,10 @@ import React from "react"
 export default function PortfolioPerformance() {
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
-      <h3 class="text-xl leading-6 font-medium text-gray-900">
+      <h3 class="text-2xl leading-6 font-medium text-gray-900">
         Prognose Ihrer Wertanlage
       </h3>
-      <div class="flex flex-row">
+      <div class="mt-1 flex flex-col lg:flex-row">
         <span class="flex-1 text-sm font-medium text-gray-500">
           Einmalige Einzahlung: 10.000€, Summe monatliche Einzahlungen: 30.000€
         </span>
