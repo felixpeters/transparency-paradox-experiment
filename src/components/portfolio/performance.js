@@ -1,6 +1,8 @@
 import React from "react"
+import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function PortfolioPerformance() {
+  const mixpanel = useMixpanel()
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
       <h3 class="text-2xl leading-6 font-medium text-gray-900">
@@ -12,6 +14,7 @@ export default function PortfolioPerformance() {
         </span>
         <a
           href="#"
+          onClick={() => mixpanel.track("Open prognosis explanation")}
           class="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
         >
           Wie wurden die Prognosen erstellt?

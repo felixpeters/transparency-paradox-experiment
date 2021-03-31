@@ -1,6 +1,8 @@
 import React from "react"
+import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function InvestmentList() {
+  const mixpanel = useMixpanel()
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
       <h3 class="text-2xl leading-6 font-medium text-gray-900">
@@ -80,7 +82,13 @@ export default function InvestmentList() {
                       50%
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <a
+                        onClick={() =>
+                          mixpanel.track("Open ETF explanation", { etf_idx: 1 })
+                        }
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                      >
                         Warum wurde dieser ETF ausgewählt?
                       </a>
                     </td>
@@ -122,7 +130,13 @@ export default function InvestmentList() {
                       25%
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <a
+                        onClick={() =>
+                          mixpanel.track("Open ETF explanation", { etf_idx: 2 })
+                        }
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                      >
                         Warum wurde dieser ETF ausgewählt?
                       </a>
                     </td>
@@ -164,7 +178,13 @@ export default function InvestmentList() {
                       15%
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <a
+                        onClick={() =>
+                          mixpanel.track("Open ETF explanation", { etf_idx: 3 })
+                        }
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                      >
                         Warum wurde dieser ETF ausgewählt?
                       </a>
                     </td>
@@ -208,7 +228,13 @@ export default function InvestmentList() {
                       5%
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <a
+                        onClick={() =>
+                          mixpanel.track("Open ETF explanation", { etf_idx: 4 })
+                        }
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                      >
                         Warum wurde dieser ETF ausgewählt?
                       </a>
                     </td>
@@ -252,7 +278,13 @@ export default function InvestmentList() {
                       5%
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                      <a
+                        onClick={() =>
+                          mixpanel.track("Open ETF explanation", { etf_idx: 5 })
+                        }
+                        href="#"
+                        class="text-indigo-600 hover:text-indigo-900"
+                      >
                         Warum wurde dieser ETF ausgewählt?
                       </a>
                     </td>
