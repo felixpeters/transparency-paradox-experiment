@@ -6,6 +6,7 @@ import PortfolioPerformance from "../components/portfolio/performance"
 import InvestmentList from "../components/portfolio/investments"
 import PortfolioOverview from "../components/portfolio/overview"
 import PortfolioStructure from "../components/portfolio/structure"
+import PortfolioCTA from "../components/portfolio/cta"
 
 export default function Survey() {
   return (
@@ -16,6 +17,7 @@ export default function Survey() {
       <PortfolioStructure />
       <PortfolioPerformance />
       <InvestmentList />
+      <PortfolioCTA />
     </Layout>
   )
 }
