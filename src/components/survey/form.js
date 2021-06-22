@@ -52,18 +52,32 @@ function classNames(...classes) {
 
 export default function SurveyForm() {
   const mixpanel = useMixpanel()
-  const [investmentAmount, setInvestmentAmount] = useState(10000)
-  const [riskShare, setRiskShare] = useState(50)
-  const [investmentStrategy, setInvestmentStrategy] = useState("Klassisch")
+
+  const [state, setState] = useState({
+    investmentAmount: 10000,
+    riskShare: 50,
+    investmentStrategy: "Klassisch",
+  })
+
+  const handleInputChange = event => {
+    const { name, value } = event
+    setState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    navigate("/portfolio/", { state: state })
+  }
+
   return (
     <div class="max-w-7xl mx-auto my-4 px-4 sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <form
-            onSubmit={event => {
-              event.preventDefault()
-              navigate("/portfolio")
-            }}
+            onSubmit={handleSubmit}
             class="space-y-8 divide-y divide-gray-200"
           >
             <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
@@ -87,7 +101,15 @@ export default function SurveyForm() {
                       Portfolio.
                     </label>
                     <div class="mt-1 sm:mt-0">
-                      <RadioGroup value={riskShare} onChange={setRiskShare}>
+                      <RadioGroup
+                        value={state["riskShare"]}
+                        onChange={value =>
+                          handleInputChange({
+                            name: "riskShare",
+                            value: value,
+                          })
+                        }
+                      >
                         <RadioGroup.Label className="sr-only">
                           Risikoanteil
                         </RadioGroup.Label>
@@ -167,12 +189,17 @@ export default function SurveyForm() {
                       <span class="text-gray-500 sm:text-sm">€</span>
                     </div>
                     <input
-                      type="text"
+                      type="number"
                       name="investment-amount"
                       id="investment-amount"
                       class="focus:ring-emerald-500 focus:border-emerald-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                      placeholder={investmentAmount}
-                      onChange={setInvestmentAmount}
+                      defaultValue={state["investmentAmount"]}
+                      onInput={event =>
+                        handleInputChange({
+                          name: "investmentAmount",
+                          value: Number(event.target.value),
+                        })
+                      }
                       aria-describedby="current-assets-currency"
                     />
                     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -209,8 +236,13 @@ export default function SurveyForm() {
                     </label>
                     <div class="mt-1 sm:mt-0">
                       <RadioGroup
-                        value={investmentStrategy}
-                        onChange={setInvestmentStrategy}
+                        value={state["investmentStrategy"]}
+                        onChange={value =>
+                          handleInputChange({
+                            name: "investmentStrategy",
+                            value: value,
+                          })
+                        }
                       >
                         <RadioGroup.Label className="sr-only">
                           Investmentstrategie
