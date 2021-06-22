@@ -1,8 +1,24 @@
 import React from "react"
 import { useMixpanel } from "gatsby-plugin-mixpanel"
 
-export default function PortfolioPerformance() {
+function formatCurrency(num) {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  }).format(num)
+}
+
+function formatPercentage(num) {
+  return new Intl.NumberFormat("de-DE").format(num * 100) + "% p.a."
+}
+
+export default function PortfolioPerformance({ strategy, portfolio }) {
   const mixpanel = useMixpanel()
+  const investmentHorizon = 10
+  const bestReturn = portfolio.return_yearly + portfolio.risk_yearly
+  const expectedReturn = portfolio.return_yearly
+  const worstReturn = portfolio.return_yearly - portfolio.risk_yearly
+
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
       <h3 class="text-2xl leading-6 font-medium text-gray-900">
@@ -10,7 +26,8 @@ export default function PortfolioPerformance() {
       </h3>
       <div class="mt-1 flex flex-col lg:flex-row">
         <span class="flex-1 text-sm font-medium text-gray-500">
-          Einmalige Einzahlung: 10.000€, Summe monatliche Einzahlungen: 30.000€
+          Einmaliger Anlagebetrag: {formatCurrency(strategy.investmentAmount)},
+          Anlagezeitraum: {investmentHorizon} Jahre (bis 2031)
         </span>
         <a
           href="#"
@@ -25,10 +42,10 @@ export default function PortfolioPerformance() {
           <dt class="text-base font-normal text-gray-900">Bester Fall</dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl font-semibold text-emerald-600">
-              88.929,72 €
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                (bis 2031)
-              </span>
+              {formatCurrency(
+                strategy.investmentAmount *
+                  Math.pow(1 + bestReturn, investmentHorizon)
+              )}
             </div>
 
             <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0">
@@ -45,7 +62,7 @@ export default function PortfolioPerformance() {
                 />
               </svg>
               <span class="sr-only">Increased by</span>
-              12,32%
+              {formatPercentage(bestReturn)}
             </div>
           </dd>
         </div>
@@ -54,10 +71,10 @@ export default function PortfolioPerformance() {
           <dt class="text-base font-normal text-gray-900">Erwarteter Fall</dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl font-semibold text-emerald-600">
-              63.127,81 €
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                (bis 2031)
-              </span>
+              {formatCurrency(
+                strategy.investmentAmount *
+                  Math.pow(1 + expectedReturn, investmentHorizon)
+              )}
             </div>
 
             <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0">
@@ -74,7 +91,7 @@ export default function PortfolioPerformance() {
                 />
               </svg>
               <span class="sr-only">Increased by</span>
-              7,11%
+              {formatPercentage(expectedReturn)}
             </div>
           </dd>
         </div>
@@ -85,10 +102,10 @@ export default function PortfolioPerformance() {
           </dt>
           <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
             <div class="flex items-baseline text-2xl font-semibold text-emerald-600">
-              38.486,55€
-              <span class="ml-2 text-sm font-medium text-gray-500">
-                (bis 2031)
-              </span>
+              {formatCurrency(
+                strategy.investmentAmount *
+                  Math.pow(1 + worstReturn, investmentHorizon)
+              )}
             </div>
 
             <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 md:mt-2 lg:mt-0">
@@ -105,7 +122,7 @@ export default function PortfolioPerformance() {
                 />
               </svg>
               <span class="sr-only">Decreased by</span>
-              0,59%
+              {formatPercentage(worstReturn)}
             </div>
           </dd>
         </div>

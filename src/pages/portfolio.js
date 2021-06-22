@@ -65,7 +65,7 @@ function Portfolio({ location, data }) {
       <SEO title="Ihr Musterportfolio" />
       <PortfolioHeader />
       <PortfolioOverview strategy={inputs} />
-      <PortfolioPerformance />
+      <PortfolioPerformance strategy={inputs} portfolio={portfolio} />
       <InvestmentList />
       <PortfolioCTA />
     </Layout>

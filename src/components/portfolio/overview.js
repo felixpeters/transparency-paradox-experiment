@@ -1,5 +1,16 @@
 import React from "react"
 
+function formatCurrency(num) {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  }).format(num)
+}
+
+function formatPercentage(num) {
+  return new Intl.NumberFormat("de-DE").format(num) + "%"
+}
+
 export default function PortfolioOverview({ strategy }) {
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
@@ -26,7 +37,7 @@ export default function PortfolioOverview({ strategy }) {
             Risikoanteil
           </dt>
           <dd class="mt-1 text-3xl font-semibold text-gray-900">
-            {strategy.riskShare + "%"}
+            {formatPercentage(strategy.riskShare)}
           </dd>
         </div>
 
@@ -35,7 +46,7 @@ export default function PortfolioOverview({ strategy }) {
             Anlagebetrag
           </dt>
           <dd class="mt-1 text-3xl font-semibold text-gray-900">
-            {strategy.investmentAmount + "€"}
+            {formatCurrency(strategy.investmentAmount)}
           </dd>
         </div>
       </dl>
