@@ -5,9 +5,8 @@ import PortfolioHeader from "../components/portfolio/header"
 import PortfolioPerformance from "../components/portfolio/performance"
 import InvestmentList from "../components/portfolio/investments"
 import PortfolioOverview from "../components/portfolio/overview"
-import PortfolioStructure from "../components/portfolio/structure"
 import PortfolioCTA from "../components/portfolio/cta"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 function getPortfolioId(inputs) {
   let portfolioId = 0
@@ -66,7 +65,7 @@ function Portfolio({ location, data }) {
       <PortfolioHeader />
       <PortfolioOverview strategy={inputs} />
       <PortfolioPerformance strategy={inputs} portfolio={portfolio} />
-      <InvestmentList />
+      <InvestmentList portfolio={portfolio} />
       <PortfolioCTA />
     </Layout>
   )
@@ -86,6 +85,7 @@ export const query = graphql`
           cost_yearly
           id
           name
+          type
           return_yearly
           risk_yearly
           weight
