@@ -61,6 +61,10 @@ export default function SurveyForm() {
 
   const handleInputChange = event => {
     const { name, value } = event
+    mixpanel.track("Change input in investment assistant", {
+      field: name,
+      value: value,
+    })
     setState(prevState => ({
       ...prevState,
       [name]: value,

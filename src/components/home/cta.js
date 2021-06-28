@@ -15,7 +15,7 @@ export default function CTA() {
           <div class="inline-flex rounded-md shadow">
             <Link
               to="/survey"
-              onClick={() => mixpanel.track("Open depot")}
+              onClick={() => mixpanel.track("Open depot", { section: "cta" })}
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Depot eröffnen
@@ -24,7 +24,9 @@ export default function CTA() {
           <div class="ml-3 inline-flex rounded-md shadow">
             <Link
               to="/survey"
-              onClick={() => mixpanel.track("Create sample portfolio")}
+              onClick={() =>
+                mixpanel.track("Create sample portfolio", { section: "cta" })
+              }
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50"
             >
               Musterportfolio erstellen

@@ -13,13 +13,12 @@ export default function CTA() {
         </h2>
         <div class="mt-8 flex justify-center">
           <div class="inline-flex rounded-md shadow">
-            <a
-              href="#"
+            <button
               onClick={() => mixpanel.track("Open depot")}
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-xl font-bold rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Depot eröffnen
-            </a>
+            </button>
           </div>
         </div>
       </div>

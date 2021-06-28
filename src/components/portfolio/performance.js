@@ -29,13 +29,12 @@ export default function PortfolioPerformance({ strategy, portfolio }) {
           Einmaliger Anlagebetrag: {formatCurrency(strategy.investmentAmount)},
           Anlagezeitraum: {investmentHorizon} Jahre (bis 2031)
         </span>
-        <a
-          href="#"
+        <button
           onClick={() => mixpanel.track("Open prognosis explanation")}
           class="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
         >
           Wie wurden die Prognosen erstellt?
-        </a>
+        </button>
       </div>
       <dl class="mt-4 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
         <div class="px-4 py-5 sm:p-6">

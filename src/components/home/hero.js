@@ -24,7 +24,7 @@ export default function Hero() {
             <div class="rounded-md shadow">
               <Link
                 to="/survey"
-                onClick={() => mixpanel.track("Open depot")}
+                onClick={() => mixpanel.track("Open depot", {section: "hero"})}
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-10"
               >
                 Depot eröffnen
@@ -33,7 +33,7 @@ export default function Hero() {
             <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
               <Link
                 to="/survey"
-                onClick={() => mixpanel.track("Create sample portfolio")}
+                onClick={() => mixpanel.track("Create sample portfolio", {section: "hero"})}
                 class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
               >
                 Musterportfolio erstellen
