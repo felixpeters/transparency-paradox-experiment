@@ -12,7 +12,11 @@ function formatPercentage(num) {
   return new Intl.NumberFormat("de-DE").format(num * 100) + "% p.a."
 }
 
-export default function PortfolioPerformance({ strategy, portfolio }) {
+export default function PortfolioPerformance({
+  strategy,
+  portfolio,
+  onExplanationRequest,
+}) {
   const mixpanel = useMixpanel()
   const investmentHorizon = 10
   const bestReturn = portfolio.return_yearly + portfolio.risk_yearly
@@ -30,7 +34,10 @@ export default function PortfolioPerformance({ strategy, portfolio }) {
           Anlagezeitraum: {investmentHorizon} Jahre (bis 2031)
         </span>
         <button
-          onClick={() => mixpanel.track("Open prognosis explanation")}
+          onClick={() => {
+            mixpanel.track("Open prognosis explanation")
+            onExplanationRequest(true)
+          }}
           class="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
         >
           Wie wurden die Prognosen erstellt?

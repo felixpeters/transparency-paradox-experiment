@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PortfolioHeader from "../components/portfolio/header"
@@ -6,6 +6,7 @@ import PortfolioPerformance from "../components/portfolio/performance"
 import InvestmentList from "../components/portfolio/investments"
 import PortfolioOverview from "../components/portfolio/overview"
 import PortfolioCTA from "../components/portfolio/cta"
+import ExplanationPanel from "../components/explanationPanel"
 import { graphql } from "gatsby"
 
 function getPortfolioId(inputs) {
@@ -58,15 +59,24 @@ function Portfolio({ location, data }) {
   }
   const portfolioId = getPortfolioId(inputs)
   const portfolio = data.allPortfoliosJson.nodes[portfolioId]
+  const [explanationPanelOpen, setExplanationPanelOpen] = useState(true)
 
   return (
     <Layout>
       <SEO title="Ihr Musterportfolio" />
       <PortfolioHeader />
       <PortfolioOverview strategy={inputs} />
-      <PortfolioPerformance strategy={inputs} portfolio={portfolio} />
+      <PortfolioPerformance
+        strategy={inputs}
+        portfolio={portfolio}
+        onExplanationRequest={setExplanationPanelOpen}
+      />
       <InvestmentList portfolio={portfolio} />
       <PortfolioCTA />
+      <ExplanationPanel
+        show={explanationPanelOpen}
+        toggle={setExplanationPanelOpen}
+      />
     </Layout>
   )
 }
