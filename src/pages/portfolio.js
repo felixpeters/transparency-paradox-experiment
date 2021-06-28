@@ -6,7 +6,8 @@ import PortfolioPerformance from "../components/portfolio/performance"
 import InvestmentList from "../components/portfolio/investments"
 import PortfolioOverview from "../components/portfolio/overview"
 import PortfolioCTA from "../components/portfolio/cta"
-import ExplanationPanel from "../components/explanationPanel"
+import PrognosisExplanationPanel from "../components/portfolio/prognosisExplanationPanel"
+import FondsExplanationPanel from "../components/portfolio/fondsExplanationPanel"
 import { graphql } from "gatsby"
 
 function getPortfolioId(inputs) {
@@ -59,7 +60,10 @@ function Portfolio({ location, data }) {
   }
   const portfolioId = getPortfolioId(inputs)
   const portfolio = data.allPortfoliosJson.nodes[portfolioId]
-  const [explanationPanelOpen, setExplanationPanelOpen] = useState(true)
+  const [prognosisExplanationOpen, setPrognosisExplanationOpen] = useState(
+    false
+  )
+  const [fondsExplanationOpen, setFondsExplanationOpen] = useState(false)
 
   return (
     <Layout>
@@ -69,13 +73,20 @@ function Portfolio({ location, data }) {
       <PortfolioPerformance
         strategy={inputs}
         portfolio={portfolio}
-        onExplanationRequest={setExplanationPanelOpen}
+        toggleExplanation={setPrognosisExplanationOpen}
       />
-      <InvestmentList portfolio={portfolio} />
+      <InvestmentList
+        portfolio={portfolio}
+        toggleExplanation={setFondsExplanationOpen}
+      />
       <PortfolioCTA />
-      <ExplanationPanel
-        show={explanationPanelOpen}
-        toggle={setExplanationPanelOpen}
+      <PrognosisExplanationPanel
+        show={prognosisExplanationOpen}
+        toggle={setPrognosisExplanationOpen}
+      />
+      <FondsExplanationPanel
+        show={fondsExplanationOpen}
+        toggle={setFondsExplanationOpen}
       />
     </Layout>
   )

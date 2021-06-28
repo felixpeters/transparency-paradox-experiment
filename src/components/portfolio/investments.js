@@ -9,7 +9,7 @@ function formatPercentage(num) {
   )
 }
 
-export default function InvestmentList({ portfolio }) {
+export default function InvestmentList({ portfolio, toggleExplanation }) {
   const mixpanel = useMixpanel()
   return (
     <div class="max-w-7xl mx-auto my-8 px-4 sm:px-6 lg:px-8">
@@ -21,10 +21,25 @@ export default function InvestmentList({ portfolio }) {
           Folgende Fonds werden in Ihr Portfolio aufgenommen.
         </span>
         <button
-          onClick={() => mixpanel.track("Open fonds explanation")}
-          class="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
+          onClick={() => {
+            mixpanel.track("Open fonds explanation")
+            toggleExplanation(true)
+          }}
+          class="flex flex-row gap-1 text-indigo-600 hover:text-indigo-900 text-sm font-medium"
         >
-          Warum wurden diese Fonds ausgewählt?
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>Warum wurden diese Fonds ausgewählt?</span>
         </button>
       </div>
       <div class="flex flex-col mt-4">

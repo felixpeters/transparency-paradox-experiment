@@ -2,7 +2,7 @@ import React from "react"
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 
-export default function ExplanationPanel({ show, toggle }) {
+export default function FondsExplanationPanel({ show, toggle }) {
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
