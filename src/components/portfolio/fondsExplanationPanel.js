@@ -2,7 +2,7 @@ import React from "react"
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 
-export default function FondsExplanationPanel({ show, toggle }) {
+export default function FondsExplanationPanel({ portfolio, show, toggle }) {
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
@@ -30,7 +30,7 @@ export default function FondsExplanationPanel({ show, toggle }) {
                   <div className="px-4 sm:px-6">
                     <div className="flex items-start justify-between">
                       <Dialog.Title className="text-lg font-medium text-gray-900">
-                        Panel title
+                        Warum wurden diese Fonds ausgewählt?
                       </Dialog.Title>
                       <div className="ml-3 h-7 flex items-center">
                         <button
@@ -59,10 +59,46 @@ export default function FondsExplanationPanel({ show, toggle }) {
                   <div className="mt-6 relative flex-1 px-4 sm:px-6">
                     {/* Replace with your content */}
                     <div className="absolute inset-0 px-4 sm:px-6">
-                      <div
-                        className="h-full border-2 border-dashed border-gray-200"
-                        aria-hidden="true"
-                      />
+                      <p>
+                        Unsere KI wählt die Fonds für Ihr Portfolio{" "}
+                        <b>basierend auf folgenden Kriterien</b> aus:
+                      </p>
+                      <ul className="my-2 list-disc list-inside">
+                        <li>Ihrer Angabe zum Risikoanteil</li>
+                        <li>Ihrer Angabe zur Investmentstrategie</li>
+                        <li>Historische Rendite</li>
+                        <li>Abgedeckte Anlageklasse</li>
+                        <li>Kosten</li>
+                      </ul>
+                      <p>
+                        Dabei verfolgt die KI <b>folgende Vorgaben</b>:
+                      </p>
+                      <ul className="my-2 list-decimal list-inside space-y-1">
+                        <li>
+                          Je höher der gewünschte Risikoanteil ist, desto eher
+                          werden risikoreichere Anlagen wie Aktien und Rohstoffe
+                          risikoärmeren Anlagen wie Staats- und
+                          Unternehmensanleihen vorgezogen.
+                        </li>
+                        <li>
+                          Wenn Sie die Investmentstrategie "Nachhaltig"
+                          ausgewählt haben, werden bevorzugt Fonds ins Portfolio
+                          aufgenommen, die sich auf Aktien von klimaneutralen
+                          Unternehmen spezialisieren.
+                        </li>
+                        <li>
+                          Kommen ähnliche Fonds für das Portfolio in Frage, wird
+                          auf Basis des Rendite-Kosten-Verhältnisses
+                          entschieden.
+                        </li>
+                        <li>
+                          Es sollen möglichst viele verschiedene Anlageklassen
+                          abgedeckt werden. Beispielsweise enthält der
+                          risikoreiche Anteil Ihres Portfolios Aktien- und
+                          Rohstofffonds, der risikoärmere Anteil Unternehmens-
+                          und Staatsanleihen.
+                        </li>
+                      </ul>
                     </div>
                     {/* /End replace */}
                   </div>
