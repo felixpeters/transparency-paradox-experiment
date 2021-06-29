@@ -72,14 +72,14 @@ export default function PortfolioPerformance({
             <dt class="text-base font-normal text-gray-900">
               {prognosis.name}
             </dt>
-            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
-              <div class="flex items-baseline text-2xl font-semibold text-emerald-600">
-                {formatCurrency(
-                  strategy.investmentAmount *
-                    Math.pow(1 + prognosis.value, investmentHorizon)
-                )}
-              </div>
-              {prognosis.value >= 0 && (
+            {prognosis.value >= 0 && (
+              <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                <div class="flex items-baseline text-2xl font-semibold text-emerald-600">
+                  {formatCurrency(
+                    strategy.investmentAmount *
+                      Math.pow(1 + prognosis.value, investmentHorizon)
+                  )}
+                </div>
                 <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0">
                   <svg
                     class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500"
@@ -96,8 +96,16 @@ export default function PortfolioPerformance({
                   <span class="sr-only">Increased by</span>
                   {formatPercentage(prognosis.value)}
                 </div>
-              )}
-              {prognosis.value < 0 && (
+              </dd>
+            )}
+            {prognosis.value < 0 && (
+              <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                <div class="flex items-baseline text-2xl font-semibold text-red-600">
+                  {formatCurrency(
+                    strategy.investmentAmount *
+                      Math.pow(1 + prognosis.value, investmentHorizon)
+                  )}
+                </div>
                 <div class="bg-red-100 text-red-800 inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium md:mt-2 lg:mt-0">
                   <svg
                     class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500"
@@ -114,8 +122,8 @@ export default function PortfolioPerformance({
                   <span class="sr-only">Decreased by</span>
                   {formatPercentage(prognosis.value)}
                 </div>
-              )}
-            </dd>
+              </dd>
+            )}
           </div>
         ))}
       </dl>
