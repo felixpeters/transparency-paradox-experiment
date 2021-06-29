@@ -57,20 +57,18 @@ export default function Header() {
             </button>
           </div>
           <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a
-              href="#"
+            <button
               onClick={() => mixpanel.track("Log in")}
               class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
             >
               Login
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               onClick={() => mixpanel.track("Sign up")}
               class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700"
             >
               Kunde werden
-            </a>
+            </button>
           </div>
         </div>
       </div>
