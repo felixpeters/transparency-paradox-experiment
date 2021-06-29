@@ -81,10 +81,12 @@ function Portfolio({ location, data }) {
       />
       <PortfolioCTA />
       <PrognosisExplanationPanel
+        portfolio={portfolio}
         show={prognosisExplanationOpen}
         toggle={setPrognosisExplanationOpen}
       />
       <FondsExplanationPanel
+        portfolio={portfolio}
         show={fondsExplanationOpen}
         toggle={setFondsExplanationOpen}
       />

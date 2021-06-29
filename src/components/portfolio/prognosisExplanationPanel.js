@@ -2,7 +2,11 @@ import React from "react"
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 
-export default function PrognosisExplanationPanel({ show, toggle }) {
+function formatPercentage(num) {
+  return new Intl.NumberFormat("de-DE").format(num * 100) + "%"
+}
+
+export default function PrognosisExplanationPanel({ portfolio, show, toggle }) {
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
@@ -30,7 +34,7 @@ export default function PrognosisExplanationPanel({ show, toggle }) {
                   <div className="px-4 sm:px-6">
                     <div className="flex items-start justify-between">
                       <Dialog.Title className="text-lg font-medium text-gray-900">
-                        Panel title
+                        Wie wurden die Prognosen erstellt?
                       </Dialog.Title>
                       <div className="ml-3 h-7 flex items-center">
                         <button
@@ -59,10 +63,56 @@ export default function PrognosisExplanationPanel({ show, toggle }) {
                   <div className="mt-6 relative flex-1 px-4 sm:px-6">
                     {/* Replace with your content */}
                     <div className="absolute inset-0 px-4 sm:px-6">
-                      <div
-                        className="h-full border-2 border-dashed border-gray-200"
-                        aria-hidden="true"
-                      />
+                      <p>
+                        Unsere KI prognostiziert für jedes Portfolio zwei
+                        grundlegende Werte: die{" "}
+                        <b>erwartete jährliche Rendite</b> und das{" "}
+                        <b>erwartete jährliche Risiko</b>. Für Ihre Prognosen
+                        greift die KI auf{" "}
+                        <b>Daten aus mehr als 300 externen Quellen</b> zurück
+                        (z.B. Börsen-, Nachrichten- oder Wetterdaten) und{" "}
+                        <b>simuliert mit mehr als 1.000 Modellen</b>, wie sich{" "}
+                        <b>verschiedenste Szenarien</b> auf mehr als 7.300
+                        Wertpapiere auswirken könnten. Für jedes Szenario werden
+                        die Rendite und das Risiko Ihres Portfolios bestimmt.
+                        Anschließend werden diese{" "}
+                        <b>
+                          Werte unter Berücksichtigung der
+                          Eintrittswahrscheinlichkeit jedes Szenarios gemittelt
+                        </b>
+                        .
+                      </p>
+                      <br />
+                      <p>
+                        Die erwartete jährliche Rendite (für Ihr Portfolio:{" "}
+                        {formatPercentage(portfolio.return_yearly)}) steht dabei
+                        für den <b>erwarteten durchschnittlichen Gewinn</b>, den
+                        unsere KI für das erstellte Portfolio berechnet hat. Das
+                        erwartete jährliche Risiko (für Ihr Portfolio:{" "}
+                        {formatPercentage(portfolio.risk_yearly)}) gibt an,{" "}
+                        <b>wie viel Schwankung unsere KI in den Gewinnen</b>{" "}
+                        erwartet. Das{" "}
+                        <b>
+                          Risiko kann sich dabei positiv oder negativ auf den
+                          Gewinn auswirken
+                        </b>
+                        . Im besten Fall prognostiziert die KI somit einen
+                        Gewinn, der sich aus der Summe des erwarteten Gewinns
+                        und des erwarteten Risikos ergibt (in Ihrem Portfolio:{" "}
+                        {formatPercentage(portfolio.return_yearly)} +{" "}
+                        {formatPercentage(portfolio.risk_yearly)} ={" "}
+                        {formatPercentage(
+                          portfolio.return_yearly + portfolio.risk_yearly
+                        )}
+                        ). Im ungünstigsten Fall reduziert sich ihr erwarteter
+                        Gewinn um das errechnete Risiko (in Ihrem Portfolio:{" "}
+                        {formatPercentage(portfolio.return_yearly)} -{" "}
+                        {formatPercentage(portfolio.risk_yearly)} ={" "}
+                        {formatPercentage(
+                          portfolio.return_yearly - portfolio.risk_yearly
+                        )}
+                        ).
+                      </p>
                     </div>
                     {/* /End replace */}
                   </div>
