@@ -8,7 +8,7 @@ function classNames(...classes) {
 
 export default function CTA({ tic }) {
   const mixpanel = useMixpanel()
-  const [finished, setFinished] = useState(false)
+  const [finished, setFinished] = useState(true)
   return (
     <div class="bg-gray-50">
       <div class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">

@@ -42,6 +42,7 @@ export default function PortfolioPerformance({
           Einmaliger Anlagebetrag: {formatCurrency(strategy.investmentAmount)},
           Anlagezeitraum: {investmentHorizon} Jahre (bis 2031)
         </span>
+        {/*
         <div>
           <button
             onClick={() => {
@@ -65,6 +66,9 @@ export default function PortfolioPerformance({
             <span>Wie wurden die Prognosen erstellt?</span>
           </button>
         </div>
+
+
+      */}
       </div>
       <dl class="mt-4 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
         {cases.map(prognosis => (
