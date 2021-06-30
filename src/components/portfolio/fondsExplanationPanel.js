@@ -1,8 +1,10 @@
 import React from "react"
 import { Fragment, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
+import { useMixpanel } from "gatsby-plugin-mixpanel"
 
 export default function FondsExplanationPanel({ portfolio, show, toggle }) {
+  const mixpanel = useMixpanel()
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
@@ -35,7 +37,10 @@ export default function FondsExplanationPanel({ portfolio, show, toggle }) {
                       <div className="ml-3 h-7 flex items-center">
                         <button
                           className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                          onClick={() => toggle(false)}
+                          onClick={() => {
+                            mixpanel.track("Close fonds explanation")
+                            toggle(false)
+                          }}
                         >
                           <span className="sr-only">Close panel</span>
                           <svg
