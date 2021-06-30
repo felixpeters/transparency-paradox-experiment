@@ -62,8 +62,10 @@ export default function CTA({ tic }) {
           <div class="inline-flex rounded-md shadow">
             <a
               href={
-                "https://ww3.unipark.de/uc/Robo-Advisor/ospe.php?return_tic=" +
-                tic
+                tic !== "anonymous"
+                  ? "https://ww3.unipark.de/uc/Robo-Advisor/ospe.php?return_tic=" +
+                    tic
+                  : "#"
               }
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-xl font-bold rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
