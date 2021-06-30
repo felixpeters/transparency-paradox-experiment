@@ -58,6 +58,7 @@ function Portfolio({ location, data }) {
     riskShare: 50,
     investmentStrategy: "Klassisch",
   }
+  const tic = (location.state ? location.state.tic : null) || "anonymous"
   const portfolioId = getPortfolioId(inputs)
   const portfolio = data.allPortfoliosJson.nodes[portfolioId]
   const [prognosisExplanationOpen, setPrognosisExplanationOpen] = useState(
@@ -79,7 +80,7 @@ function Portfolio({ location, data }) {
         portfolio={portfolio}
         toggleExplanation={setFondsExplanationOpen}
       />
-      <PortfolioCTA />
+      <PortfolioCTA tic={tic} />
       <PrognosisExplanationPanel
         portfolio={portfolio}
         show={prognosisExplanationOpen}

@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-export default function CTA() {
+export default function CTA({ tic }) {
   const mixpanel = useMixpanel()
   const [finished, setFinished] = useState(false)
   return (
@@ -51,6 +51,24 @@ export default function CTA() {
             >
               Nein, ich möchte nicht investieren.
             </button>
+          </div>
+        </div>
+        <div
+          class={classNames(
+            finished ? "" : "hidden",
+            "mt-8 flex gap-4 justify-center"
+          )}
+        >
+          <div class="inline-flex rounded-md shadow">
+            <a
+              href={
+                "https://ww3.unipark.de/uc/Robo-Advisor/ospe.php?return_tic=" +
+                tic
+              }
+              class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-xl font-bold rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
+            >
+              Zurück zur Umfrage
+            </a>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { useMixpanel } from "gatsby-plugin-mixpanel"
 
-export default function CTA() {
+export default function CTA({ tic }) {
   const mixpanel = useMixpanel()
   return (
     <div class="bg-gray-50">
@@ -15,6 +15,7 @@ export default function CTA() {
           <div class="inline-flex rounded-md shadow">
             <Link
               to="/survey"
+              state={{ tic: tic }}
               onClick={() => mixpanel.track("Open depot", { section: "cta" })}
               class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
             >
@@ -24,6 +25,7 @@ export default function CTA() {
           <div class="ml-3 inline-flex rounded-md shadow">
             <Link
               to="/survey"
+              state={{ tic: tic }}
               onClick={() =>
                 mixpanel.track("Create sample portfolio", { section: "cta" })
               }

@@ -14,15 +14,19 @@ export default function Home({ location }) {
     params.get("pid") ||
     (location.state ? location.state.pid : null) ||
     "anonymous"
+  const tic =
+    params.get("tic") ||
+    (location.state ? location.state.tic : null) ||
+    "anonymous"
   mixpanel.identify(pid)
 
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero />
+      <Hero tic={tic} />
       <Feature />
       <Stats />
-      <CTA />
+      <CTA tic={tic} />
     </Layout>
   )
 }

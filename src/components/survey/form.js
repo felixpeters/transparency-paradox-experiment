@@ -50,13 +50,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-export default function SurveyForm() {
+export default function SurveyForm({ tic }) {
   const mixpanel = useMixpanel()
 
   const [state, setState] = useState({
     investmentAmount: 10000,
     riskShare: 50,
     investmentStrategy: "Klassisch",
+    tic: tic,
   })
 
   const handleInputChange = event => {
