@@ -20,6 +20,7 @@ export default function InvestmentList({ portfolio, toggleExplanation }) {
         <span class="flex-1 text-sm font-medium text-gray-500">
           Folgende Fonds werden in Ihr Portfolio aufgenommen.
         </span>
+        {/*
         <button
           onClick={() => {
             mixpanel.track("Open fonds explanation")
@@ -41,6 +42,7 @@ export default function InvestmentList({ portfolio, toggleExplanation }) {
           </svg>
           <span>Warum wurden diese Fonds ausgewählt?</span>
         </button>
+        */}
       </div>
       <div class="flex flex-col mt-4">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
